@@ -1,4 +1,4 @@
-# dijkstra algorithm(heapq)
+# Dijkstra algorithm(heapq)
 
 import heapq, sys
 

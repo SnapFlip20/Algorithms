@@ -1,4 +1,4 @@
-# dijkstra algorithm
+# Dijkstra algorithm
 
 import sys
 
