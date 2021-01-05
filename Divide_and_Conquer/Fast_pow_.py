@@ -1,4 +1,4 @@
-# Fast power algorithm(divide and conquer)
+# Fast power algorithm
 
 '''
 빠른 거듭제곱 구하기
