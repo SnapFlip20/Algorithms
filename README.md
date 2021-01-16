@@ -5,4 +5,5 @@
 * [DFS](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Depth%20First%20Search(DFS).py) / [BFS](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Breadth%20First%20Search(BFS).py)
 * [Dijkstra](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Dijkstra%20Algorithm(without%20explanation).py) / [Floyd-Warshall](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Floyd%20Warshall%20Algorithm.py)
 ### Tree
-* [LCA](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Lowest%20Common%20Ancestor(LCA).py) / 
+* [LCA](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Lowest%20Common%20Ancestor(LCA).py)
+* [Union Find](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Union%20Find.py) / [Kruskal](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Kruskal%20Algorithm.py)
