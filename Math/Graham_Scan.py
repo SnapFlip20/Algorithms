@@ -1,7 +1,5 @@
 # find convex hull
 
-import sys
-
 def ccw(cd1, cd2, cd3):
     x1, y1 = cd1; x2, y2 = cd2; x3, y3 = cd3
     return (x1*y2+x2*y3+x3*y1)-(x2*y1+x3*y2+x1*y3)
@@ -11,14 +9,15 @@ def slope(cd1, cd2):
         return 1.0*(cd1[1]-cd2[1])/(cd1[0]-cd2[0])
     else:
         return float('inf')
+
 def dist(cd1, cd2):
     return ((cd1[0]-cd2[0])**2 + (cd1[1]-cd2[1])**2)**0.5
 
-n = int(sys.stdin.readline())
+n = int(input())
 cd = []
 
 for i in range(n):
-    x, y = map(int, sys.stdin.readline().split())
+    x, y = map(int, input().split())
     cd.append((x, y))
 
 start = min(cd, key = lambda x: (x[0], x[1]))
