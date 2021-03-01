@@ -13,7 +13,7 @@ for i in range(n):
     xct.append(x); yct.append(y); zct.append(z)
     px += x; py += y; pz += z
 
-px /= ; py /= ; pz /= n
+px /= n; py /= n; pz /= n
 
 # using gradient descent
 rate = 0.1
