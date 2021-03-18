@@ -14,6 +14,7 @@ def euler_phi(n):
         res *= (1 - (1/n))
         return round(res)
 
-n = int(sys.stdin.readline())
+
+n = int(input())
 
 print(euler_phi(n))
