@@ -34,3 +34,4 @@ for i in range(1, n-1):
     st.append(sorted_cd[i])
 
 print(len(st))
+print(st)
