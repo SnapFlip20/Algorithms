@@ -1,5 +1,6 @@
 # Monotone Chain
 
+# ---method 1-------------------------------------------
 import sys
 
 def ccw(cd1, cd2, cd3):
@@ -27,5 +28,34 @@ for i in range(n):
     cd.append((x, y))
 
 upper, lower = monotone_chain(cd)
+hull = upper+lower[-2:0:-1]
 
 print(len(upper) + len(lower) - 2)
+print(hull)
+
+# ---method 2-------------------------------------------
+def monotone_chain2(cd):
+    u = []; l = [];
+    cd.sort()
+    for i in cd:
+        while len(l) > 1 and ccw(l[-2], l[-1], i) < 0:
+            l.pop()
+        l.append(i)
+    for i in reversed(cd):
+        while len(u) > 1 and ccw(u[-2], u[-1], i) < 0:
+            u.pop()
+        u.append(i)
+    return l[:-1] + u[:-1]
+
+n = int(input())
+
+cd = []
+
+for i in range(n):
+    x, y = map(int, input().split())
+    cd.append((x, y))
+
+hull = monotone_chain2(cd)
+
+print(len(hull))
+print(hull)
