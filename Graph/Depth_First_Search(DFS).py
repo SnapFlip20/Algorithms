@@ -69,8 +69,6 @@ def check():
     print('구역의 개수:', len(lst))
     print(*lst)
 
-# 5. NxN 크기의 map에서 연결된 구역의 개수와 넓이를 알고 싶을 때
-
 # 0. 테스트용
 def _dfs(graph, v, visit):
     visit[v] = True
