@@ -1,4 +1,4 @@
-# Dijkstra(heapq)
+# Dijkstra
 
 import heapq
 inf = int(1e9)
