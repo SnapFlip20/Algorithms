@@ -1,31 +1,30 @@
-# Floyd Warshall Algorithm
-
-import sys
+# Floyd Warshall
 
 inf = int(1e9)
 
-n = int(sys.stdin.readline()) # 노드의 개수
-m = int(sys.stdin.readline()) # 간선의 개수
+v, e = 5, 14
 
-graph = [[inf for _ in range(n+1)] for _ in range(n+1)]
+graph = [[inf, inf, inf, inf, inf, inf],
+         [inf, 0, 2, 3, 1, 10],
+         [inf, inf, 0, inf, 2, inf],
+         [inf, 8, inf, 0, 1, 1],
+         [inf, inf, inf, inf, 0, 3],
+         [inf, 7, 4, inf, inf, 0]]
 
-for i in range(1, n+1):
-    for j in range(1, n+1):
-        if i == j:
-            graph[i][j] = 0
+def floyd_warshall():
+    for k in range(1, v+1):
+        for a in range(1, v+1):
+            for b in range(1, v+1):
+                graph[a][b] = min(graph[a][b], graph[a][k]+graph[k][b])
 
-for i in range(m):
-    a, b, c = map(int, sys.stdin.readline().split())
-    if c < graph[a][b]:
-        graph[a][b] = c
+def test():
+    floyd_warshall()
 
-for k in range(1, n+1):
-    for a in range(1, n+1):
-        for b in range(1, n+1):
-            graph[a][b] = min(graph[a][b], graph[a][k]+graph[k][b])
+    for i in range(1, v+1):
+        for j in range(1, v+1):
+            if graph[i][j] == inf:
+                graph[i][j] = 0
+        print(*graph[i][1:])
 
-for i in range(1, n+1):
-    for j in range(1, n+1):
-        if graph[i][j] == inf:
-            graph[i][j] = 0
-    print(*graph[i][1:])
+if __name__ == "__main__":
+    test()
