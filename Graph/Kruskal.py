@@ -1,6 +1,4 @@
-# Kruskal Algorithm(for making MST)
-
-import sys
+# Kruskal
 
 def union(a, b):
     a, b = find(a), find(b)
@@ -16,12 +14,12 @@ def find(n):
         tree[n] = find(tree[n])
         return tree[n]
 
-v, e = map(int, sys.stdin.readline().split())
+v, e = map(int, input().split())
 tree = {x:x for x in range(v+1)}
 graph = []
 
 for i in range(e):
-    a, b, c = map(int, sys.stdin.readline().split())
+    a, b, c = map(int, input().split())
     graph.append((a, b, c))
 
 graph.sort(key = lambda x: x[2])
