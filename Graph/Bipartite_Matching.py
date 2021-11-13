@@ -1,9 +1,5 @@
 # Bipartite Matching
 
-import sys
-
-graph = []
-
 def dfs(a):
     visit[a] = True
     for b in graph[a]:
@@ -14,11 +10,9 @@ def dfs(a):
             return True
     return False
 
-n, m = map(int, sys.stdin.readline().split())
+n, m = 5, 5
 
-for i in range(n):
-    s, *tmp = map(int, sys.stdin.readline().split())
-    graph.append(tmp)
+graph = [[2, 5], [2, 3, 4], [1, 5], [1, 2, 5], [2]]
 
 match = 0
 group_a = [-1 for _ in range(n+1)]
