@@ -1,4 +1,4 @@
-# find convex hull
+# Graham Scan
 
 def ccw(cd1, cd2, cd3):
     x1, y1 = cd1; x2, y2 = cd2; x3, y3 = cd3
