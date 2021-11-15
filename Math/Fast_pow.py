@@ -1,4 +1,4 @@
-# Fast power algorithm
+# Fast power
 
 def fast_pow(x, y, mod=None):
     res = 1
