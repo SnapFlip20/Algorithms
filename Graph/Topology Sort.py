@@ -3,7 +3,7 @@
 from collections import deque
 
 v, e = map(int, input().split())
-ind = [0 for _ in range(v+1)] # 진입차수
+ind = [0 for _ in range(v+1)] # indegree
 graph = [[] for _ in range(v+1)]
 
 for i in range(e):
