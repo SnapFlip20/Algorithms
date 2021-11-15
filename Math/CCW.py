@@ -15,3 +15,7 @@ def ccw(cd1, cd2, cd3):
         return -1
     else:
         return 0
+
+def ccw(cd1, cd2, cd3):
+    x1, y1 = cd1; x2, y2 = cd2; x3, y3 = cd3
+    return (x1*y2 + x2*y3 + x3*y1) - (x2*y1 + x3*y2 + x1*y3)
