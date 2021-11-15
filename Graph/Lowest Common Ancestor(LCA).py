@@ -1,9 +1,8 @@
-# Lowest Common Ancestor(LCA) using DP
+# Lowest Common Ancestor(LCA)
 
-import sys 
 from collections import deque
 
-log = 20
+log = 20 # m < 2**log
 
 def bfs(root_node): # check each node's depth
     check[root_node] = 1
@@ -18,7 +17,7 @@ def bfs(root_node): # check each node's depth
             parent[next_node][0] = now_node
             q.append(next_node)
 
-def make_tree(): # make tree(DP table)
+def make_tree(): # make tree(using DP table)
     bfs(1)
     for j in range(1, log):
         for i in range(1, n+1):
@@ -38,7 +37,7 @@ def lca(x, y): # find lowest common ancestor
             y = parent[y][i]
     return parent[x][0]
 
-n = int(sys.stdin.readline())
+n = int(input()) # node
 
 graph = [[] for _ in range(n+1)]
 check = [0 for _ in range(n+1)]
@@ -46,14 +45,14 @@ depth = [0 for _ in range(n+1)]
 parent = [[0 for x in range(log)] for y in range(n+1)]
 
 for i in range(n-1):
-    a, b = map(int, sys.stdin.readline().split())
+    a, b = map(int, input().split())
     graph[a].append(b)
     graph[b].append(a)
 
 make_tree()
 
-m = int(sys.stdin.readline())
+m = int(input())
 
 for _ in range(m):
-    x, y = map(int, sys.stdin.readline().split())
+    x, y = map(int, input().split()) # two vertex
     print(lca(x, y))
