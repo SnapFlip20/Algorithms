@@ -1,4 +1,4 @@
-# Topology sort
+# Topology sort for DAG
 
 from collections import deque
 
