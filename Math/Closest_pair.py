@@ -1,10 +1,4 @@
-# Find closest pair in 2d coordinate
-
-'''
-자세한 설명은 BOJ-practice/Platinum의 2261.py 문서 참조
-'''
-
-import sys
+# Find closest pair in 2d
 
 def return_dist(cd1, cd2):
     return (cd1[0] - cd2[0])**2 + (cd1[1] - cd2[1])**2
@@ -39,12 +33,12 @@ def closest_pair(cd, n):
                 min_distance = min(min_distance, return_dist(cd_in_range[i], cd_in_range[j]))
     return min_distance
 
-n = int(sys.stdin.readline())
+n = int(input())
 
 coordinate = []
 
 for i in range(n):
-    coordinate.append(tuple(map(int, sys.stdin.readline().split())))
+    coordinate.append(tuple(map(int, input().split())))
 
 coordinate = list(set(map(tuple, coordinate)))
 
