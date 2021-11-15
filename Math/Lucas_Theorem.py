@@ -1,6 +1,6 @@
 # Lucas Theorem
 
-MAX = 2000 # m의 범위에 따라 적절하게 조정해주기
+MAX = 2000
 
 def lucas_theorem(n, k, mod):
     binom = [[0 for _ in range(MAX)] for _ in range(MAX)]
