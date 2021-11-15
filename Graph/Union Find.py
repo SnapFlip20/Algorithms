@@ -1,4 +1,4 @@
-# Union Find Algorithm
+# Disjoint set(Union Find)
 
 import sys
 
@@ -16,18 +16,18 @@ def find(n):
         tree[n] = find(tree[n])
         return tree[n]
 
-n = int(sys.stdin.readline())
+n = int(input())
 tree = {x:x for x in range(n+1)}
-m = int(sys.stdin.readline())
+m = int(input())
 
 # union
 for i in range(m):
-    a, b = map(int, sys.stdin.readline().split())
+    a, b = map(int, input().split())
     union(a, b)
 
 # find
 for i in range(m):
-    a, b = map(int, sys.stdin.readline().split())
+    a, b = map(int, input().split())
     if find(a) == find(b):
         print('O')
     else:
