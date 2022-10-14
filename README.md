@@ -1,4 +1,5 @@
 # Algorithms(Python)
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/generate_badge?boj=snapflip20)](https://solved.ac/snapflip20)
 * for Problem Solving
 
 ## Shortcuts
