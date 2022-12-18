@@ -26,6 +26,8 @@
 * [LCA](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Lowest%20Common%20Ancestor(LCA).py)
 * [Lucas Theorem](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Lucas_Theorem.py)
 * [Manacher](https://github.com/SnapFlip20/Algorithms/blob/master/String/Manacher.py)
+* [Matrix Multiplication](https://github.com/SnapFlip20/Algorithms/blob/master/String/Matrix_Multiplication.py)
+* [Matrix Power](https://github.com/SnapFlip20/Algorithms/blob/master/String/Matrix_Power.py)
 * [MEC](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Minimum_Enclosing_Circle.py)
 * [Miller Rabin](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Miller_Rabin_Primality_Test.py)
 * Modinv
