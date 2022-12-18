@@ -15,6 +15,7 @@
 * [Edmonds Karp](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Edmonds%20Karp.py)
 * [Euler Phi](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Euler_Phi_Function.py)
 * ExtGCD
+* [Factorial Length](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Factorial_Length.py)
 * Fenwick
 * [Floyd Warshall](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Floyd_Warshall.py)
 * [Gale Shapley](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Gale_Shapley.py)
@@ -26,8 +27,8 @@
 * [LCA](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Lowest%20Common%20Ancestor(LCA).py)
 * [Lucas Theorem](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Lucas_Theorem.py)
 * [Manacher](https://github.com/SnapFlip20/Algorithms/blob/master/String/Manacher.py)
-* [Matrix Multiplication](https://github.com/SnapFlip20/Algorithms/blob/master/String/Matrix_Multiplication.py)
-* [Matrix Power](https://github.com/SnapFlip20/Algorithms/blob/master/String/Matrix_Power.py)
+* [Matrix Multiplication](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Matrix_Multiplication.py)
+* [Matrix Power](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Matrix_Power.py)
 * [MEC](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Minimum_Enclosing_Circle.py)
 * [Miller Rabin](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Miller_Rabin_Primality_Test.py)
 * Modinv
@@ -42,4 +43,6 @@
 * [Tarjan](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Tarjan.py)
 * [Topology Sort](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Topology%20Sort.py)
 * [Trie](https://github.com/SnapFlip20/Algorithms/blob/master/String/Trie.py)
+* [TSP](https://github.com/SnapFlip20/Algorithms/blob/master/Optimization/TSP.py)
+* [Upper Bound](https://github.com/SnapFlip20/Algorithms/blob/master/Sorting-Searching/Upper_Bound.py)
 * Z
