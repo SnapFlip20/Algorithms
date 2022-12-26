@@ -17,6 +17,7 @@
 * ExtGCD
 * [Factorial Length](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Factorial_Length.py)
 * Fenwick
+* [FFT/IFFT](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Cooley_Tukey.py)
 * [Floyd Warshall](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Floyd_Warshall.py)
 * [Gale Shapley](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Gale_Shapley.py)
 * [Graham Scan](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Graham_Scan.py)
