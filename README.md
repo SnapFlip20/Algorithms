@@ -6,8 +6,8 @@
 * [Bellman Ford](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Bellman_Ford.py)
 * [BFS](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Breadth_First_Search(BFS).py)
 * Binary Search
-    * [Lower_Bound](https://github.com/SnapFlip20/Algorithms/blob/master/Sorting-Searching/Lower_Bound.py)
-    * [Upper_Bound](https://github.com/SnapFlip20/Algorithms/blob/master/Sorting-Searching/Upper_Bound.py)
+    * [Lower Bound](https://github.com/SnapFlip20/Algorithms/blob/master/Sorting-Searching/Lower_Bound.py)
+    * [Upper Bound](https://github.com/SnapFlip20/Algorithms/blob/master/Sorting-Searching/Upper_Bound.py)
 * [Bipartite Matching](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Bipartite_Matching.py)
 * [CCW](https://github.com/SnapFlip20/Algorithms/blob/master/Math/CCW.py)
 * [CRT](https://github.com/SnapFlip20/Algorithms/blob/master/Math/Chinese_Remainder_Theorem.py)
@@ -51,5 +51,4 @@
 * [Topology Sort](https://github.com/SnapFlip20/Algorithms/blob/master/Graph/Topology%20Sort.py)
 * [Trie](https://github.com/SnapFlip20/Algorithms/blob/master/String/Trie.py)
 * [TSP](https://github.com/SnapFlip20/Algorithms/blob/master/Optimization/TSP.py)
-* [Upper Bound](https://github.com/SnapFlip20/Algorithms/blob/master/Sorting-Searching/Upper_Bound.py)
 * Z
