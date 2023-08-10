@@ -13,7 +13,7 @@ prefer_lst = [[3, 2, 1, 4],
               [2, 3, 4, 1],
               [4, 2, 1, 3]]
 
-while not (all(matched_m[1:]) and all(matched_w[1:])):
+while not all(matched_w[1:]):
     for i in range(n):
         if matched_m[i+1]:
             continue
@@ -41,5 +41,5 @@ while not (all(matched_m[1:]) and all(matched_w[1:])):
                     matched_m[second] = 0
                 break
 
+print('(man, woman)')
 print(*zip([_ for _ in range(1, n+1)], matched_m[1:]), sep = '\n')
-
