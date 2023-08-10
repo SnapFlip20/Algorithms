@@ -1,41 +1,48 @@
 # Dijkstra
 
-import heapq
+from heapq import heappush, heappop
 inf = int(1e9)
 
-v, e = 5, 6
-start = 1
-
-graph = [[],
-         [(2, 2), (3, 3)],
-         [(3, 4), (4, 5)],
-         [(4, 6)],
-         [],
-         [(1, 1)]]
-visited = [False for _ in range(v+1)]
-distance = [inf for _ in range(v+1)]
-
-def dijkstra(start):
-    q = []
-    heapq.heappush(q, (0, start))
+def dijkstra(v, start):
+    pq = []
+    heappush(pq, (0, start))
     distance[start] = 0
-    while q:
-        dist, now = heapq.heappop(q)
+    while pq:
+        dist, now = heappop(pq)
         if distance[now] < dist:
             continue
-        for i in graph[now]:
-            cost = dist + i[1]
-            if cost < distance[i[0]]:
-                distance[i[0]] = cost
-                heapq.heappush(q, (cost, i[0]))
+        for (nxt, dist_nxt) in graph[now]:
+            cost = dist + dist_nxt
+            if cost < distance[nxt]:
+                distance[nxt] = cost
+                near[nxt] = now
+                heappush(pq, (cost, nxt))
 
-def test():
-    dijkstra(start)
-    for i in range(1, v+1):
-        if distance[i] == inf:
-            print('INF')
-        else:
-            print(distance[i])
+def traceback():
+    array = []
+    trace = end
+    while trace != start:
+        array.append(trace)
+        trace = near[trace]
+    array.append(start)
 
-if __name__ == "__main__":
-    test()
+    return array[::-1]
+
+
+
+v = 5
+start, end = 1, 4
+graph = [[],
+        [(2, 2), (3, 3)],
+        [(3, 4), (4, 5)],
+        [(4, 6)],
+        [],
+        [(1, 1)]]
+distance = [inf for _ in range(v+1)]
+near = [start for _ in range(v+1)] # for traceback
+
+dijkstra(v, start)
+print(distance[end] if distance[end] != inf else "INF")
+
+route = traceback()
+print(*route, sep = ' -> ')
