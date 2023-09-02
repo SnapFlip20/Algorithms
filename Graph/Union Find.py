@@ -1,34 +1,21 @@
-# Disjoint set(Union Find)
-
-import sys
+# Disjoint set(Weighted Union Find)
 
 def union(a, b):
-    a, b = find(a), find(b)
-    if a < b:
+    if (a := find(a)) == (b := find(b)):
+        return
+    if tree[a] < tree[b]:
+        tree[a] += tree[b]
         tree[b] = a
     else:
+        tree[b] += tree[a]
         tree[a] = b
 
 def find(n):
-    if tree[n] == n:
+    if tree[n] < 0 :
         return n
     else:
         tree[n] = find(tree[n])
         return tree[n]
 
-n = int(input())
-tree = {x:x for x in range(n+1)}
-m = int(input())
-
-# union
-for i in range(m):
-    a, b = map(int, input().split())
-    union(a, b)
-
-# find
-for i in range(m):
-    a, b = map(int, input().split())
-    if find(a) == find(b):
-        print('O')
-    else:
-        print('X')
+v = 100
+tree =  [-1 for x in range(v+1)]
