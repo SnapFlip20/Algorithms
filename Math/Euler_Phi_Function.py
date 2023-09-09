@@ -2,17 +2,17 @@
 # euler_phi(n) returns number of k that meets GCD(n, k) = 1
 
 def euler_phi(n):
-    res = n
-    for i in range(2, round(n**0.5)+1):
+    i, res = 2, n
+    while i**2 <= n:
         if n % i == 0:
-            res *= (1 - (1/i))
+            res = res - res//i
             while n % i == 0:
                 n //= i
-    if n == 1:
-        return round(res)
-    else:
-        res *= (1 - (1/n))
-        return round(res)
+        i += 1
+    if n > 1:
+        res = res - res//n
+
+    return res
 
 
 n = int(input())
