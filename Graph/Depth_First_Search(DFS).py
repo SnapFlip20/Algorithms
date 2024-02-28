@@ -1,109 +1,186 @@
 # Depth First Search(DFS)
 
-
 '''
 import sys
 sys.setrecursionlimit(10**9)
 '''
-
-# 1. 기본형(graph가 인접 행렬)
-def dfs(graph, v, visit):
-    n = len(graph)
-    visit[v] = True
-    for i in range(1, n+1):
-        if (graph[v][i] == 1 and not visit[i]):
-            dfs(graph, i, visit)
-
-# 2. 기본형(graph가 인접 리스트)
-def dfs(graph, v, visit):
-    visit[v] = True
-    for i in graph[v]:
-        if not visit[i]:
-            dfs(graph, i, visit)
-
-# 3. NxM 크기의 map에서 기본형
-graph = []
-def dfs(x, y):
-    global m, n
-    if x < 0 or y < 0 or x >= m or y >= n: # 범위를 벗어나면
-        return False
-    if graph[y][x] == 1: # 아직 방문하지 않았다면
-        graph[y][x] = 0
-        # 재귀함수 호출
-        dfs(x+1, y)
-        dfs(x-1, y)
-        dfs(x, y+1)
-        dfs(x, y-1)
-        return True
-    return False
-
-# 4. NxN 크기의 map에서 연결된 구역의 개수와 넓이를 알고 싶을 때
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
-matrix_nn = [[1, 1, 0, 1],
-             [0, 0, 0, 1],
-             [0, 1, 1, 1],
-             [0, 0, 1, 0]]
-n = 4
- 
-def dfs(x, y):
-    global cnt
-    matrix_nn[x][y] = 0
-    cnt += 1
-    for k in range(4) :
-        ddx, ddy = x + dx[k], y + dy[k]
-        if ddx < 0 or ddx >= n or ddy < 0 or ddy >= n:
-            continue
-        if matrix_nn[ddx][ddy] == 1 :
-            dfs(ddx,ddy)
 
-def check():
-    global cnt
-    lst = []
-    for i in range(n):
-        for j in range(n):
-            if matrix_nn[i][j] == 1:
-                cnt = 0
-                dfs(i, j)
-                lst.append(cnt)
-    print('구역의 개수:', len(lst))
-    print(*lst)
-
-# 0. 테스트용
-def _dfs(graph, v, visit):
+# 1. adjacency list
+def dfs_adjlst(v):
     visit[v] = True
-    print(v)
+    order.append(v)
     for i in graph[v]:
         if not visit[i]:
-            _dfs(graph, i, visit)
+            dfs_adjlst(i)
 
-def test():
-    '''
-         <예시 그래프>
+# 1-1. adjacency list + calculate distance
+def dfs_dist(v):
+    visit[v] = True
+    for i in graph[v]:
+        if not visit[i]:
+            dist[i] = dist[v]+1
+            dfs_dist(i)
 
-               1 ⟹ 시작
-             ╱ │ ╲
-            2  4  8
-           ╱  ╱ ╲
-          5  3   7
-                ╱
-               6
+# 2. adjacency matrix / 1-indexed
+def dfs_adjmtx(v):
+    visit[v] = True
+    order.append(v)
+    # ok: node visiting condition expression
+    ok = 1
+    for i in range(1, len(graph)-1):
+        if (graph[v][i] == ok and not visit[i]):
+            dfs_adjmtx(i)
+
+# 3. dfs in N*M map
+def dfs_nm(x, y):
+    global m, n
+    if 0 <= x < m and 0 <= y < n:
+        order.append((x, y))
+        # ok: node visiting condition expression
+        ok = 1
+        if graph[y][x] == ok:
+            graph[y][x] = 0
+            for (i, j) in zip(dx, dy):
+                dfs_nm(x+i, y+i)
+            return True
+    return False
+
+# 4. dfs in N*N map
+def dfs_nn(x, y):
+    global n
+    if 0 <= x < n and 0 <= y < n:
+        order.append((x, y))
+        # ok: node visiting condition expression
+        ok = 1
+        if graph[y][x] == ok:
+            graph[y][x] = 0
+            for (i, j) in zip(dx, dy):
+                dfs_nn(x+i, y+i)
+            return True
+    return False
+
+# ------------- checking ------------- #
+
+def check_distance_of_nodes(): # 1-indexed
+    global visit, graph, dist
     
-    '''
-    graph = [
-        [],
-        [2, 4, 8],
-        [1, 5],
-        [4],
-        [1, 3, 7],
-        [2],
-        [7],
-        [4, 6],
-        [1]
-    ]
-    visit = [False for i in range(9)]
-    print('노드 방문 순서:')
-    _dfs(graph, 1, visit)
+    # n: number of vertexs / m: number of edges
+    n, m = map(int, input().split())
+    # s: start node
+    s = int(input())
+
+    graph = [[] for _ in range(n+1)] # 1-indexed
+    visit = [False for _ in range(n+1)] # 1-indexed
+    dist = [0 for _ in range(n+1)]
+
+    # input edges(from, to)
+    for i in range(m):
+        a, b = map(int, input().split())
+        graph[a].append(b)
+        graph[b].append(a)
+
+    dfs_dist(s)
+
+    print(f'from {s}')
+    for (i, j) in enumerate(dist[1:]):
+        if i+1 != s:
+            print(f'to {i+1}: {j if j != 0 else "path does not exist"}')
+
+def check_traversal_order():
+    global visit, graph, order
+
+    # n: number of vertexs / m: number of edges
+    n, m = map(int, input().split())
+    graph = [[] for _ in range(n+1)] # 1-indexed
+    visit = [False for _ in range(n+1)] # 1-indexed
+    order = []
+
+    # input edges(from, to)
+    for i in range(m):
+        a, b = map(int, input().split())
+        graph[a].append(b)
+        graph[b].append(a)
+
+    for i in range(1, n+1):
+        if not visit[i]:
+            dfs_adjlst(i)
+
+    print('traversal order: ', end = '')
+    print(*order, sep = ' -> ')
+
+def check_connected_component():
+    global visit, graph, order
+
+    # n: number of vertexs / m: number of edges
+    n, m = map(int, input().split())
+    graph = [[] for _ in range(n+1)] # 1-indexed
+    visit = [False for _ in range(n+1)] # 1-indexed
+    order = []
+
+    # input edges(from, to)
+    for i in range(m):
+        a, b = map(int, input().split())
+        graph[a].append(b)
+        graph[b].append(a)
+
+    cnt = 0
+    for i in range(1, n+1):
+        if not visit[i]:
+            dfs_adjlst(i)
+            cnt += 1
+
+    print('the number of connected component:', cnt)
+    print('traversal order: ', end = '')
+    print(*order, sep = ' -> ')
+
+def check_permutation_cycle():
+    global visit, graph, order
+
+    # n: number of vertexs
+    n = int(input())
+    graph = [[] for _ in range(n+1)] # 1-indexed
+    visit = [False for _ in range(n+1)] # 1-indexed
+    order = []
+
+    # input edges(from, to)
+    for i in range(n):
+        a, b = map(int, input().split())
+        graph[a].append(b)
+
+    cnt = 0
+    for i in range(1, n+1):
+        if not visit[i]:
+            dfs_adjlst(i)
+            cnt += 1
+
+    print('the number of permutation cycles:', cnt)
+    print('traversal order: ', end = '')
+    print(*order, sep = ' -> ')
+
+def adj_to_mtx(adj):
+    n = len(adj)-1 # if 0-indexed, -1 is necessary
+    # 0: not visited / 1: visited
+    mtx = [[0 for _ in range(n+1)] for _ in range(n+1)]
+    for (i, j) in enumerate(adj):
+        print(i, j)
+        for k in j:
+            mtx[i][k] = 1
+
+    return mtx
+
+def mtx_to_add(mtx):
+    n = len(mtx)
+    adj = [[] for _ in range(n+1)] # if 1-indexed, +1 is necessary
+    for i in range(n):
+        for j in range(n):
+            if mtx[i][j] == 1:
+                adj[i].append(j)
+
+    return adj
+
+
 
 if __name__ == "__main__":
-    test()
+    ...
